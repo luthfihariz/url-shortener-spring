@@ -5,9 +5,9 @@ import com.luthfihariz.urlshortener.shortener.dto.ShortenerRequestDto;
 import com.luthfihariz.urlshortener.shortener.dto.ShortenerResponseDto;
 import com.luthfihariz.urlshortener.shortener.exception.KeyAliasRetrievalFailedException;
 import com.luthfihariz.urlshortener.shortener.model.ShortUrl;
-import com.luthfihariz.urlshortener.shortener.repository.ShortUrlRepository;
+import com.luthfihariz.urlshortener.repository.ShortUrlRepository;
 import com.luthfihariz.urlshortener.user.model.User;
-import com.luthfihariz.urlshortener.user.repository.UserRepository;
+import com.luthfihariz.urlshortener.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -48,7 +48,7 @@ public class ShortenerServiceImpl implements ShortenerService {
         }
 
         ShortUrl shortUrl = new ShortUrl(keyAlias.getKey(), requestDto.getOriginalUrl(), user);
-        shortUrl = shortUrlRepository.save(shortUrl);
+        shortUrl = shortUrlRepository.saveAndCache(shortUrl);
 
         return new ShortenerResponseDto(shortUrl.getOriginalUrl(), redirectionBaseUrl + shortUrl.getAlias());
     }

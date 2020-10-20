@@ -1,7 +1,7 @@
 package com.luthfihariz.urlshortener.redirection.service;
 
 import com.luthfihariz.urlshortener.shortener.model.ShortUrl;
-import com.luthfihariz.urlshortener.shortener.repository.ShortUrlRepository;
+import com.luthfihariz.urlshortener.repository.ShortUrlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +12,7 @@ public class RedirectionService {
     private ShortUrlRepository shortUrlRepository;
 
     public String getOriginalUrlFromAlias(String alias) throws NullPointerException {
+
         ShortUrl shortUrl = shortUrlRepository.findByAlias(alias);
         return shortUrl.getOriginalUrl();
     }

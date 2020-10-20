@@ -1,4 +1,4 @@
-package com.luthfihariz.urlshortener.user.repository;
+package com.luthfihariz.urlshortener.repository;
 
 import com.luthfihariz.urlshortener.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;

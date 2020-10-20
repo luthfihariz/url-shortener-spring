@@ -1,7 +1,7 @@
 package com.luthfihariz.urlshortener.user.service;
 
 import com.luthfihariz.urlshortener.user.model.User;
-import com.luthfihariz.urlshortener.user.repository.UserRepository;
+import com.luthfihariz.urlshortener.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
